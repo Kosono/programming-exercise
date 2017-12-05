@@ -92,6 +92,11 @@ def main():
     stream = pa.open(format=pyaudio.paFloat32, channels=CHANNEL_NUM, rate=RATE,
                      output=True)
 
+    '''
+    楽譜は一つ目の要素がBPMであり、その後は楽譜となるようになっている。
+    要素は配列となっており、同じ配列内の要素が同時に鳴らす音となっている。
+    配列内の配列は連符を表している。
+    '''
     # 楽譜（Amazing grace）
     Amazing_grace = [
         120, ["b4", "d5", "1"], ["b4", "g5", "2"],
@@ -100,7 +105,7 @@ def main():
                                                "1"], ["b4", "d5", "2"]
     ]
 
-     # 楽譜（Canon_in_D）
+    # 楽譜（Canon_in_D）
     Canon_in_D = [
         90,
         ["d5", "fd4", ["d3", "1", "fd3", "1"], "2"],
