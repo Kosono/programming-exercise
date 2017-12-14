@@ -16,6 +16,7 @@ class Note(object):
         scale_name = 'cxdxefxgxaxb'
         key_index = scale_name.find(key)
         frequence = 55 * 2**((octave - 1) + (key_index - 9) / 12.0)
+        # #の音を出すための処理
         if scale[1] == "d":
             frequence *= 2**(1 / 12.0)
 
@@ -37,13 +38,14 @@ class SimpleMusic(object):
     def __init__(self, bpm, rate):
         self.bpm = bpm
         self.rate = rate
-        self.lst = []
+        self.lst = []  # 楽譜を入れるリスト
 
     def append_note(self, lst):
         self.lst.extend(lst)
 
     def play(self):
         wave = []
+        # クラス内の楽譜から波に変換
         for scale in self.lst:
             note = Note(scale[0], scale[1])
             wave.append(note.generate_wave(self.bpm, self.rate))
