@@ -39,7 +39,7 @@ class RingBuffer(object):
 
     def get_list(self):
         """num_element:リングバッファ内の要素の数
-           lst:リングバッファ内の要素"""
+           lst:リングバッファ内の配列"""
 
         if self.judge_full == 0:
             num_element = (
